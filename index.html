@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TempoBill | Registro de Horas y Facturación Premium</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#5c647a",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c8c4d9",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "surface-main": "#FFFFFF",
+                        "secondary-fixed": "#dae2fd",
+                        "primary": "#4315e3",
+                        "primary-fixed-dim": "#c6bfff",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#4d3c7b",
+                        "secondary-container": "#dae2fd",
+                        "border-subtle": "#E2E8F0",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-container": "#e8ddff",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#524281",
+                        "primary-container": "#5c3ffa",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "primary-fixed": "#e4dfff",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary": "#565e74",
+                        "on-primary-container": "#e3deff",
+                        "tertiary-fixed-dim": "#cebdff",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-fixed": "#200d4d",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e8ddff",
+                        "text-muted": "#64748B",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-fixed": "#131b2e",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "surface-bright": "#f7f9fb",
+                        "success-emerald": "#10B981",
+                        "background": "#f7f9fb",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#3d00de",
+                        "surface": "#f7f9fb",
+                        "on-primary-fixed": "#170065",
+                        "tertiary-container": "#6b5a9b",
+                        "inverse-primary": "#c6bfff",
+                        "on-surface-variant": "#474556",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-dim": "#d8dadc",
+                        "outline": "#787588",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#5637f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.8rem",
+                        "xl": "1.2rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Geist"],
+                        "label-md": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .premium-shadow {
+            box-shadow: 0px 10px 20px rgba(15, 23, 42, 0.04);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(92, 63, 250, 0.03) 0%, rgba(247, 249, 251, 1) 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-main/80 backdrop-blur-md border-b border-border-subtle shadow-sm">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<img alt="TempoBill Logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy24if6k4rOzQp-ZzZRuKRMaulPfJFEpTXR8wtM1-Z46YaZtFIJyA5dP1CuNoNHtjtCj34Tpt8LQ1AXHLNDmzGk08s-HAkNhDzISid_eIbNXxBD-DJuQXGc9Kn0jkfV0qKniOjH0uJ8wxZqTx04rgBenn1jDlDe050mF2ajtW_Ski4IWUZWy1lkx-N1rF0PwrFmT6BnceHvDpJ3QKSb0ls5K-Pyrq0zKXSNQq-_CGPLD0SXlt2uAm08jMzq7KGNpQPHCMjfSNM-Tyl"/>
+<span class="text-headline-md font-headline-md font-bold text-primary">TempoBill</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-secondary font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#features">Features</a>
+<a class="text-secondary font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#benefits">Benefits</a>
+<a class="text-secondary font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#pricing">Pricing</a>
+<a class="text-secondary font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#resources">Resources</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="px-6 py-2 border border-primary text-primary font-bold rounded-lg hover:bg-primary/5 transition-all active:scale-95 text-label-md font-label-md" href="#">
+                    Acceder a la App
+                </a>
+</div>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="hero-gradient px-margin-mobile md:px-margin-desktop py-20 lg:py-32 overflow-hidden">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full border border-primary/20">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-primary font-label-sm text-label-sm">Precision Time Tracking SaaS</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl md:text-6xl text-on-surface leading-[1.1]">
+                        Registra tus horas sin esfuerzo. <br class="hidden lg:block"/>
+<span class="text-primary">Factura sin dolores de cabeza.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-xl">
+                        El control de tiempo preciso y la facturación de clientes simplificada que tu negocio independiente necesita. Sin complicaciones, sin pérdidas de datos.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="px-8 py-4 bg-primary text-white font-bold rounded-lg premium-shadow hover:bg-primary-container transition-all active:scale-95 text-label-md">
+                            Pruébalo gratis
+                        </button>
+<button class="flex items-center justify-center gap-2 px-8 py-4 bg-white border border-border-subtle text-on-surface font-semibold rounded-lg hover:bg-surface-container transition-all text-label-md">
+<span class="material-symbols-outlined">play_circle</span>
+                            Ver demo
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-20 -right-20 w-80 h-80 bg-primary/5 rounded-full blur-[80px]"></div>
+<div class="relative z-10 glass-card rounded-xl p-4 premium-shadow transform lg:rotate-2 hover:rotate-0 transition-transform duration-700">
+<img class="rounded-lg shadow-2xl w-full" data-alt="A premium software dashboard mockup for a time-tracking application. The UI is clean and sophisticated, featuring an elegant sidebar with icons, a central stopwatch interface, and data-rich progress bars for various projects. The color scheme is dominated by deep violets and pristine whites with subtle slate accents. The lighting is soft and professional, emphasizing the high-end SaaS aesthetic of TempoBill." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVYegzcUEstXSkZlbfcTcxbeYQ6LFTHpXD8W94NHVyb0hHSdF_uH9zhGw_i2KRHSRD8yyn4MEmTm7Mkf6nb16JWavabVf08WFXd52Wfx9AEef7oSHCvef0mQuVSAYVP2FiHhvOjweKgq5i-5y2sZe7-roHNy0hTWhcW5ZYLa-Rspl8qjTbOxn4CsQbBdurM_Tpy83rpc1XfLi1sx--5R4euTZa3t6BJgeSk1xlodZd2yl_Y9v2EGvehQtdsNFpFCmVIl1IsFX8bgXx"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Benefits -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-main" id="benefits">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg">Diseñado para la eficiencia</h2>
+<p class="text-secondary font-body-md max-w-2xl mx-auto">Eliminamos las barreras entre tu trabajo y tu cobro. Enfócate en crear, nosotros nos encargamos del resto.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter h-auto md:h-[600px]">
+<!-- Card 1 -->
+<div class="md:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between border border-border-subtle hover:border-primary/30 transition-all group">
+<div>
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">timer</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Adiós a los olvidos</h3>
+<p class="text-secondary font-body-md">Simple cronómetro en tiempo real siempre a mano. Un solo clic para empezar, un solo clic para registrar.</p>
+</div>
+<div class="mt-8 bg-white/50 p-4 rounded-lg border border-border-subtle">
+<div class="flex items-center justify-between">
+<span class="font-mono text-xl font-bold tracking-wider">01:24:55</span>
+<button class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">pause</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="md:col-span-2 bg-surface-main rounded-xl p-8 flex flex-col justify-between border border-border-subtle shadow-sm hover:shadow-lg transition-all group">
+<div>
+<div class="w-12 h-12 bg-primary/5 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">view_quilt</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Planificación por bloques</h3>
+<p class="text-secondary font-body-md">Usa Timeboxing para organizar tu jornada. Fragmenta tus tareas en bloques de 15, 30 o 45 minutos automáticamente.</p>
+</div>
+<div class="flex gap-2 mt-8">
+<span class="px-3 py-1 bg-surface-container border border-border-subtle rounded-full text-label-sm">15m</span>
+<span class="px-3 py-1 bg-primary text-white rounded-full text-label-sm">30m</span>
+<span class="px-3 py-1 bg-surface-container border border-border-subtle rounded-full text-label-sm">45m</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="md:col-span-2 bg-surface-main rounded-xl p-8 flex flex-col justify-between border border-border-subtle shadow-sm hover:shadow-lg transition-all group">
+<div>
+<div class="w-12 h-12 bg-primary/5 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Tarifación inteligente</h3>
+<p class="text-secondary font-body-md">Tasas globales configurables y precios automatizados basados en el tipo de proyecto o cliente específico.</p>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-primary font-bold text-2xl">€85</span>
+<span class="text-secondary text-sm">/ hora (Consultoría Alpha)</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="md:col-span-2 bg-primary text-white rounded-xl p-8 flex flex-col justify-between overflow-hidden relative group">
+<div class="relative z-10">
+<div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-white">smartphone</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">UX móvil fluida</h3>
+<p class="text-on-primary-container opacity-90 font-body-md">Sesión móvil persistente que sincroniza tus tiempos incluso sin conexión a red.</p>
+</div>
+<div class="absolute -bottom-8 -right-8 opacity-20 transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
+<span class="material-symbols-outlined text-[120px]">phone_iphone</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Features (Split Screen) -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low/50 overflow-hidden" id="features">
+<div class="max-w-container-max mx-auto space-y-32">
+<!-- Feature A -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1">
+<div class="glass-card p-4 rounded-xl shadow-xl">
+<img class="rounded-lg w-full" data-alt="A clean, minimalist UI interface showing a cascading selection menu. A 'Client' dropdown is active, showing a list of brands, and upon selection, a secondary 'Project' menu slides in gracefully. The design is airy with soft shadows, using a refined color palette of deep violet and slate grey." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC02zENPdn4aRMZC2JYKOlPcORRlaY8GJKpbwIqpWQSrfNzj_PXWMWsfIBzP8fzDjsucglzBktM4N0w2vLxKVW4z-dav9oPUG719P7Rvla6pfD8FvdRYtIYPbuJzabEgRAVqrpjCsyyz6jioxlqnz3FqAN9q5iqKN9b0vgUc0aDLnR9U8xHiOmqVvxKaib19s_ObN63v-N82rwdNwq_P3v7PnMDV1GApZa9TbO6FwgGV3L97IbpNSmDPUpdn5b-GxF_RgNGsKmTf80I"/>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-6">
+<h4 class="text-primary font-label-md text-label-md uppercase tracking-wider">Flujo de Trabajo</h4>
+<h2 class="font-headline-lg text-headline-lg">Selectores en Cascada</h2>
+<p class="text-secondary text-body-lg">Nunca más busques proyectos en listas interminables. El sistema de filtrado inteligente (Cliente ➔ Proyecto) te permite encontrar lo que necesitas en segundos.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success-emerald text-xl">check_circle</span>
+<span class="font-body-md">Filtrado instantáneo por jerarquía.</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success-emerald text-xl">check_circle</span>
+<span class="font-body-md">Auto-completado inteligente.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Feature B -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="space-y-6">
+<h4 class="text-primary font-label-md text-label-md uppercase tracking-wider">Agilidad</h4>
+<h2 class="font-headline-lg text-headline-lg">Atajos rápidos de creación</h2>
+<p class="text-secondary text-body-lg">¿Empezaste a trabajar y no tienes el proyecto creado? Hazlo directamente desde el cronómetro sin perder el foco ni el tiempo acumulado.</p>
+<button class="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+                            Saber más <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div>
+<div class="glass-card p-4 rounded-xl shadow-xl transform lg:-rotate-2">
+<img class="rounded-lg w-full" data-alt="A close-up UI view of a quick action button that triggers a 'New Project' modal overlaying a running timer. The interface is sleek, using rounded corners and subtle blur effects, with the brand's primary violet color highlighting the critical call-to-actions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz4EJsDr0Eu_381aorXOE_LQXRoX85MIu6PrF6oLlxtKx4ANpQTuhRKmFfnAZYRARMQun-quqSyhHpxdU9T4VTqC8hq5O2lGnyNU8WTdKfcxcxaM9dOz-XIWfDzExsOEKpUE9fJNJCyMIKwjfZEITxu_ryY2ZQHBnEjlxxaGBNvJytLMdxVgoHQM8TKkLQHfWGJkFaFbTxmm6h2svq7wvwEFOi2VqIDJmfSlTtMqyNXG3fD2qTP1A2xoXYk9cq_6vFpMd8YrgMUQSO"/>
+</div>
+</div>
+</div>
+<!-- Feature C -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white p-6 rounded-xl shadow-sm border border-border-subtle flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-4xl text-secondary">picture_as_pdf</span>
+<span class="text-label-md">Reporte PDF</span>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-border-subtle flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-4xl text-secondary">table_view</span>
+<span class="text-label-md">Hoja Excel</span>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-6">
+<h4 class="text-primary font-label-md text-label-md uppercase tracking-wider">Reporting</h4>
+<h2 class="font-headline-lg text-headline-lg">Exportación profesional</h2>
+<p class="text-secondary text-body-lg">Genera informes detallados para tus clientes con un solo clic. Exporta en formatos estándar que cualquier departamento de contabilidad aceptará sin preguntas.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto bg-inverse-surface rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px]"></div>
+<div class="relative z-10 space-y-8 max-w-3xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-white">¿Quieres saber más sobre TempoBill o necesitas una solución personalizada?</h2>
+<p class="text-surface-variant font-body-lg opacity-80">Estamos en fase de lanzamiento controlado. Si quieres conocer los planes de despliegue o tienes cualquier consulta, escríbenos directamente.</p>
+<a class="inline-flex items-center gap-3 text-headline-md font-headline-md text-primary-fixed hover:text-white transition-colors duration-300" href="mailto:hola@digitallestudi.com">
+                        hola@digitallestudi.com
+                        <span class="material-symbols-outlined">alternate_email</span>
+</a>
+<div class="pt-8">
+<button class="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary-container transition-all text-label-md">
+                            Solicitar acceso anticipado
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-border-subtle">
+<div class="w-full px-margin-desktop py-12 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="flex items-center gap-2">
+<img alt="TempoBill Logo" class="w-6 h-6 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy24if6k4rOzQp-ZzZRuKRMaulPfJFEpTXR8wtM1-Z46YaZtFIJyA5dP1CuNoNHtjtCj34Tpt8LQ1AXHLNDmzGk08s-HAkNhDzISid_eIbNXxBD-DJuQXGc9Kn0jkfV0qKniOjH0uJ8wxZqTx04rgBenn1jDlDe050mF2ajtW_Ski4IWUZWy1lkx-N1rF0PwrFmT6BnceHvDpJ3QKSb0ls5K-Pyrq0zKXSNQq-_CGPLD0SXlt2uAm08jMzq7KGNpQPHCMjfSNM-Tyl"/>
+<span class="text-headline-sm font-headline-sm font-bold text-primary">TempoBill</span>
+</div>
+<p class="text-on-surface-variant font-body-sm text-center md:text-left">© 2026 TempoBill by Digital Estudi. Precision time-tracking for premium SaaS teams.</p>
+</div>
+<div class="flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Contact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">LinkedIn</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and scroll effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            // Apply fade-in to major sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body></html>
